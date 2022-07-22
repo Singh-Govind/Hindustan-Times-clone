@@ -1,23 +1,32 @@
-import { Box, Flex } from "@chakra-ui/react";
-import { HamburgerIcon, Search2Icon } from "@chakra-ui/icons";
+import { Box, Text, Flex, HStack, VStack } from "@chakra-ui/react";
 import React from "react";
 import { Navigate } from "react-router-dom";
+import { CgMenuLeftAlt } from "react-icons/cg";
+import { BiSearchAlt } from "react-icons/bi";
 
 export default function LeftSideContent() {
   return (
-    <Box maxW="100%">
-      <Box>
-        <Flex alignItems="center" justifyContent="space-between" gap="2.5rem">
-          <Flex alignItems="center">
-            <HamburgerIcon mr="5px" /> Explore
-          </Flex>
-          <Flex alignItems="center">
-            <Search2Icon mr="5px" />
-            Search
-          </Flex>
+    <VStack alignItems="flex-start">
+      <HStack
+        sx={{ marginBottom: "1rem" }}
+        justifyContent="flex-start"
+        spacing="2rem"
+      >
+        <Flex alignItems="center">
+          <CgMenuLeftAlt size="1.5em" />
+          <Text fontWeight="600" ml="5px">
+            Explore
+          </Text>
         </Flex>
-      </Box>
-      <Box mt="1rem">Wednesday, Jul 20, 2022 | New Delhi 27</Box>
-    </Box>
+
+        <Flex alignItems="center">
+          <BiSearchAlt size="1.5em" />
+          <Text fontWeight="600" ml="5px">
+            Search
+          </Text>
+        </Flex>
+      </HStack>
+      <Box>Wednesday, Jul 20, 2022 | New Delhi 27</Box>
+    </VStack>
   );
 }
