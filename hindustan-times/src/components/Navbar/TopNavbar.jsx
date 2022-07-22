@@ -3,6 +3,7 @@ import { Box, Container, HStack } from "@chakra-ui/react";
 import MainHeading from "./MainHeading";
 import LeftSideContent from "./LeftSideContent";
 import RightSideContent from "./RightSideContent";
+import { NavLink } from "react-router-dom";
 
 export default function TopNavbar() {
   return (
@@ -13,9 +14,14 @@ export default function TopNavbar() {
             <div style={{ width: "100%" }}>
               <LeftSideContent />
             </div>
-            <div style={{ width: "100%", marginInline: "1rem" }}>
-              <MainHeading />
-            </div>
+            <Box
+              cursor="pointer"
+              style={{ width: "100%", marginInline: "1rem" }}
+            >
+              <NavLink to="/">
+                <MainHeading />
+              </NavLink>
+            </Box>
             <div style={{ width: "100%" }}>
               <RightSideContent />
             </div>
