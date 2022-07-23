@@ -14,7 +14,7 @@ export default function RightSideContent() {
 
   const navigate = useNavigate();
   const user = UserAuth();
-  console.log("rightside content", user);
+  // console.log("rightside content", user);
 
   const handleSignInClick = () => {
     user.isAuthenticated

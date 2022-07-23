@@ -1,17 +1,20 @@
 import { Box } from "@chakra-ui/react";
+import React from "react";
+import { useParams } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 import MainSection from "../components/Main Section/MainSection";
-import MainHeading from "../components/Navbar/MainHeading";
 import Navbar from "../components/Navbar/Navbar";
 
-export default function Homepage() {
-  document.title = "HOMEPAGE" + " | HT TIMES";
+export default function SinglePage() {
+  const param = useParams();
+
+  document.title = param.title.toUpperCase() + " | HT TIMES";
 
   return (
     <Box>
       <Navbar />
       <Box bg="#F5F5F5">
-        <MainSection />
+        <MainSection cat={param} />
       </Box>
       <Footer />
     </Box>
