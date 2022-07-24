@@ -1,10 +1,12 @@
 import React from "react";
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Box, Center, Flex, Heading } from "@chakra-ui/react";
 
 export default function LatestNews() {
   return (
     <Box>
-      <Heading>LATEST NEWS</Heading>
+      <Center>
+        <Heading>LATEST NEWS</Heading>
+      </Center>
     </Box>
   );
 }

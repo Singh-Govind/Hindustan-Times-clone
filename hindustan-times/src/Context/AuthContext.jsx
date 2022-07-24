@@ -17,6 +17,8 @@ export default function AuthContextProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState({});
 
+  // const navigate = useNavigate();
+
   function googleSignIn() {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider);
