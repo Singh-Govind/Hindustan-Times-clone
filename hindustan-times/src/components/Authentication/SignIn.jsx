@@ -20,6 +20,8 @@ export default function SignIn() {
   const { isAuthenticated, handleAuthentication, googleSignIn, user } =
     UserAuth();
 
+  // console.log(user);
+
   const navigate = useNavigate();
 
   const handleGoogleSingIn = async () => {
@@ -31,12 +33,17 @@ export default function SignIn() {
   };
 
   // console.log("sigin page user: ", user);
-  // useEffect(() => {
-  //   if (user != null) {
-  //     handleAuthentication(true);
-  //     setTimeout(() => navigate("/"), 1000);
-  //   }
-  // }, []);
+
+  useEffect(() => {
+    if (user != null && user.emailVerified === true) {
+      handleAuthentication(true);
+      navigate("/");
+    }
+    // if (user != null) {
+    //   handleAuthentication(true);
+    //   setTimeout(() => navigate("/"), 1000);
+    // }
+  }, []);
 
   return (
     <Box>

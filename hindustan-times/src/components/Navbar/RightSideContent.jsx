@@ -17,10 +17,14 @@ export default function RightSideContent() {
   // console.log("rightside content", user);
 
   const handleSignInClick = () => {
-    user.isAuthenticated
-      ? setIsRightSlideMenuOpen(!isRightSlideMenuOpen)
-      : navigate("/signin");
+    if (user.user != null)
+      user.user.emailVerified
+        ? setIsRightSlideMenuOpen(!isRightSlideMenuOpen)
+        : navigate("/signin");
+    else navigate("/signin");
   };
+
+  // console.log(user);
 
   return (
     <VStack alignItems="flex-end">

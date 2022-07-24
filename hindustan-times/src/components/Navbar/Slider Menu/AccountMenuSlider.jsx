@@ -1,5 +1,6 @@
 import {
   Box,
+  Center,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -7,10 +8,13 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
+  Heading,
+  Image,
   useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 import { useEffect } from "react";
+import { UserAuth } from "../../../Context/AuthContext";
 import SingOutButton from "./SingOutButton";
 
 function AccountMenuSlider({ isSlideMenuOpen, setSlideMenu }) {
@@ -21,25 +25,32 @@ function AccountMenuSlider({ isSlideMenuOpen, setSlideMenu }) {
     if (isOpen === false) setSlideMenu(false);
   }, [isSlideMenuOpen == true]);
 
+  const { user } = UserAuth();
+
   return (
     <>
       <Drawer onClose={onClose} isOpen={isOpen} size="sm">
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>{` drawer contents`}</DrawerHeader>
+          <DrawerHeader>{` My Account`}</DrawerHeader>
           <DrawerBody>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Consequat nisl vel pretium lectus quam id. Semper quis lectus
-              nulla at volutpat diam ut venenatis. Dolor morbi non arcu risus
-              quis varius quam quisque. Massa ultricies mi quis hendrerit dolor
-              magna eget est lorem. Erat imperdiet sed euismod nisi porta.
-              Lectus vestibulum mattis ullamcorper velit.
-            </p>
+            <Center>
+              <Box>
+                <Image src={user != null ? user.photoURL : "user"} />
+              </Box>
+            </Center>
+            <Center>
+              <Box>
+                <Heading>{user != null ? user.displayName : "user"}</Heading>
+              </Box>
+            </Center>
+            <br />
+            <br />
             <Box>
-              <SingOutButton />
+              <Center>
+                <SingOutButton />
+              </Center>
             </Box>
           </DrawerBody>
         </DrawerContent>
